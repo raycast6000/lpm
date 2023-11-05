@@ -3,6 +3,7 @@ use std::env::args;
 enum Action {
     ADD(Vec<String>),
     RM(Vec<String>),
+    INIT(String),
     UNKNOWN
 }
 
@@ -30,6 +31,11 @@ fn parse_action(action: &str, args: &Vec<String>) -> Action {
 
             Action::RM(packages)
         },
+        "init" => {
+            let project_name = args.get(2).expect("Expected a project name.");
+
+            Action::INIT(project_name.to_owned())
+        },
         _ => Action::UNKNOWN
     }
 }
@@ -53,6 +59,9 @@ fn main() {
                 println!("Removing: {}", package);
             }
         },
+        Action::INIT(project_name) => {
+            println!("Initializing {}", project_name);
+        }
         Action::UNKNOWN => {}
     }
 }
