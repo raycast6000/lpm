@@ -1,7 +1,7 @@
 # The LuSR Package Manager
 Simple and stupidly fast, just a better NPM.
 # Installation
-The package manager is not finished yet, but you can still install it on [Windows]().
+The package manager is not finished yet, but you can still install it on [Windows](https://github.com/raycast6000/lpm/releases/latest).
 # Quick documentation
 Make sure that before installing or uninstalling packages you are in the same directory as your project.
 ### Initializing a LuSR project
