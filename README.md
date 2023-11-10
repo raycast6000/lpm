@@ -17,4 +17,18 @@ lpm add package1 package2 package3
 ```bash
 lpm rm package1 package2 package3
 ```
+### Publishing/Updating a package
+Before publishing packages you must be authenticated, to do so run:
+```bash
+lpm auth your_token
+```
+Replace `your_token` with your token, which you can create in our website.
+Make sure that before publising your package you've added a LICENSE and your contact info inside
+config.json. \
+Now that you're all set, run:
+```bash
+lpm publish
+```
+**NOTE: Same thing when updating, just run that command.**
+
 **ALL PACKAGES ARE STORED IN A FOLDER CALLED `lusr_packages`, WHICH IS AUTOMATICALLY CREATED WHEN YOU FIRST ADD A PACKAGE OR INITIALIZE A NEW LUSR PROJECT.**
