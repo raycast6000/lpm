@@ -3,7 +3,10 @@ use std::fs::{DirBuilder, File};
 use std::env::var_os;
 
 use auth::auth;
+
+use crate::config::create_default_config;
 mod auth;
+mod config;
 
 enum Action {
     ADD(Vec<String>),
@@ -86,12 +89,15 @@ fn main() {
         },
         Action::INIT(project_name) => {
             println!("Initializing {}", project_name);
-            let mut dir = project_name.clone();
-
-            dir.push_str("/lusr_packages");
+            let mut packages_path = project_name.clone();
+            packages_path.push_str("\\lusr_packages");
+            let mut config_path = project_name.clone();
+            config_path.push_str("\\config.json");
+            let prj_name = project_name.clone();
 
             DirBuilder::new().create(project_name).unwrap();
-            DirBuilder::new().create(dir).unwrap();
+            DirBuilder::new().create(packages_path).unwrap();
+            create_default_config(config_path.as_str(), prj_name.as_str());
         },
         Action::PUBLISH => {
             println!("Publishing package.")
